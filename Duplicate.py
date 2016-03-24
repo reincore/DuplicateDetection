@@ -44,6 +44,9 @@ def file_trav(inputDir):
 			i += 1
 			print fname
 			fname_List.append(fname)
+			if (len(fname_List) >> 2) and (fname_List [-1] == fname_List [-2]):
+				#call new function to deal with JSON files
+				print 'pass'
 			#print path
 			#print dname
 			if '.json' in fname.lower():
@@ -59,7 +62,8 @@ def file_trav(inputDir):
 				else: 
 					print root_Name
 				print i
-				
+		#xprint fname_List #think four times before uncommenting this line
+
 				#fname_base = fname_base.substr				
 				#fname_array = []
 				
