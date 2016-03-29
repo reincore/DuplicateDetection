@@ -2,7 +2,7 @@ import json
 import os, sys
 
 inputDir='ab-duplicates100-2016-03-02/'
-i = 0
+fileCount = 0
 fname_MBID = ""
 fname_array = []
 fname_List = []
@@ -19,8 +19,8 @@ def file_trav(inputDir):
 	#print inputDir
 	for path,dname,fnames in os.walk(inputDir):
 		for fname in fnames:
-			global i
-			i += 1
+			global fileCount
+			fileCount += 1
 			print fname
 
 			global fname_MBID
@@ -38,11 +38,12 @@ def file_trav(inputDir):
 
 				if (len(fname_List) >> 2) and (fname_List [-1] == fname_List [-2]):
 					#call new function to deal with JSON files
-					print 'We are working on the same file'				
+					print "Same file as previous"				
 
 				elif (len(fname_List) >> 2 and fname_List [-1] != fname_List [-2]):
-					print "We changed to a new file"
-
+					print "New file"
+				
 				# add another else if to check for 3 digits of duplicate number. Right now it only checks the case for 2 digits of duplicate number.				
 
 file_trav(inputDir)
+print str(fileCount) + " -->  File Count"
