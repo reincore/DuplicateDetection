@@ -38,7 +38,10 @@ def file_trav(inputDir):
 
 				if (len(fname_List) >> 2) and (fname_List [-1] == fname_List [-2]):
 					#call new function to deal with JSON files
-					print ''				
+					print 'We are working on the same file'				
+
+				elif (len(fname_List) >> 2 and fname_List [-1] != fname_List [-2]):
+					print "We changed to a new file"
 
 				# add another else if to check for 3 digits of duplicate number. Right now it only checks the case for 2 digits of duplicate number.				
 
